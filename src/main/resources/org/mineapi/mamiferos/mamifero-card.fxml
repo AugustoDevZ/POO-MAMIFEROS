@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        alignment="CENTER_LEFT"
+        spacing="12"
+        prefHeight="75"
+        stylesheets="@app.css">
+
+    <!-- IMAGEN -->
+    <ImageView
+            fx:id="imgMamifero"
+            fitWidth="55"
+            fitHeight="55"
+            preserveRatio="true"/>
+
+    <!-- INFORMACIÓN -->
+    <VBox
+            alignment="CENTER_LEFT"
+            spacing="4"
+            HBox.hgrow="ALWAYS">
+
+        <Label
+                fx:id="lblNombre"
+                text="León"
+                styleClass="mammal-name"/>
+
+        <Label
+                fx:id="lblAdivinanza"
+                text="Tengo una gran melena y vivo en la sabana."
+                wrapText="true"
+                styleClass="mammal-riddle"/>
+
+    </VBox>
+
+</HBox>
+

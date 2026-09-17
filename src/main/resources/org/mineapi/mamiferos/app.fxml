@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="org.mineapi.mamiferos.presentation.controller.appController"
+        stylesheets="@app.css"
+        styleClass="root">
+
+    <left>
+        <VBox
+                prefWidth="230"
+                spacing="15"
+                styleClass="sidebar">
+
+            <Label
+                    text="MAMÍFEROS"
+                    styleClass="title"/>
+
+            <Button
+                    text="+  Nuevo mamífero"
+                    onAction="#onNuevoMamifero"
+                    maxWidth="Infinity"
+                    styleClass="action-button"/>
+
+            <ScrollPane
+                    fitToWidth="true"
+                    VBox.vgrow="ALWAYS"
+                    styleClass="mammal-scroll">
+
+                <VBox
+                        spacing="6"
+                        styleClass="mammal-list">
+
+
+                    <HBox
+                            prefHeight="52"
+                            spacing="10"
+                            alignment="CENTER_LEFT"
+                            styleClass="mammal-card">
+
+                        <ImageView
+                                fitWidth="36"
+                                fitHeight="36"
+                                preserveRatio="true"/>
+
+                        <VBox
+                                alignment="CENTER_LEFT"
+                                spacing="2">
+
+                            <Label
+                                    text="León"
+                                    styleClass="mammal-name"/>
+
+                            <Label
+                                    text="Tipo · Felino"
+                                    styleClass="mammal-type"/>
+
+                        </VBox>
+                    </HBox>
+
+
+
+                    <HBox
+                            prefHeight="52"
+                            spacing="10"
+                            alignment="CENTER_LEFT"
+                            styleClass="mammal-card">
+
+                        <ImageView
+                                fitWidth="36"
+                                fitHeight="36"
+                                preserveRatio="true"/>
+
+                        <VBox
+                                alignment="CENTER_LEFT"
+                                spacing="2">
+
+                            <Label
+                                    text="Lobo"
+                                    styleClass="mammal-name"/>
+
+                            <Label
+                                    text="Tipo · Canino"
+                                    styleClass="mammal-type"/>
+
+                        </VBox>
+                    </HBox>
+
+
+
+                    <HBox
+                            prefHeight="52"
+                            spacing="10"
+                            alignment="CENTER_LEFT"
+                            styleClass="mammal-card">
+
+                        <ImageView
+                                fitWidth="36"
+                                fitHeight="36"
+                                preserveRatio="true"/>
+
+                        <VBox
+                                alignment="CENTER_LEFT"
+                                spacing="2">
+
+                            <Label
+                                    text="Tigre"
+                                    styleClass="mammal-name"/>
+
+                            <Label
+                                    text="Tipo · Felino"
+                                    styleClass="mammal-type"/>
+
+                        </VBox>
+                    </HBox>
+
+
+
+                    <HBox
+                            prefHeight="52"
+                            spacing="10"
+                            alignment="CENTER_LEFT"
+                            styleClass="mammal-card">
+
+                        <ImageView
+                                fitWidth="36"
+                                fitHeight="36"
+                                preserveRatio="true"/>
+
+                        <VBox
+                                alignment="CENTER_LEFT"
+                                spacing="2">
+
+                            <Label
+                                    text="Guepardo"
+                                    styleClass="mammal-name"/>
+
+                            <Label
+                                    text="Tipo · Felino"
+                                    styleClass="mammal-type"/>
+
+                        </VBox>
+                    </HBox>
+
+
+
+                    <HBox
+                            prefHeight="52"
+                            spacing="10"
+                            alignment="CENTER_LEFT"
+                            styleClass="mammal-card">
+
+                        <ImageView
+                                fitWidth="36"
+                                fitHeight="36"
+                                preserveRatio="true"/>
+
+                        <VBox
+                                alignment="CENTER_LEFT"
+                                spacing="2">
+
+                            <Label
+                                    text="Perro salvaje africano"
+                                    styleClass="mammal-name"/>
+
+                            <Label
+                                    text="Tipo · Canino"
+                                    styleClass="mammal-type"/>
+
+                        </VBox>
+                    </HBox>
+
+                </VBox>
+            </ScrollPane>
+
+
+
+        </VBox>
+    </left>
+
+    <center>
+        <BorderPane>
+
+
+            <top>
+                <HBox
+                        alignment="CENTER_RIGHT"
+                        styleClass="header">
+
+                    <Button
+                            text="⌘  Abrir Consola"
+                            onAction="#onCambiarConsola"
+                            styleClass="action-button"/>
+
+                </HBox>
+            </top>
+
+
+
+            <center>
+                <VBox
+                        alignment="CENTER"
+                        spacing="22"
+                        styleClass="animal-content">
+
+
+                    <StackPane
+                            prefWidth="600"
+                            prefHeight="350"
+                            styleClass="pixel-container">
+
+                        <VBox
+                                alignment="CENTER"
+                                spacing="8">
+
+                            <Label
+                                    text="ESCENARIO"
+                                    styleClass="scene-label"/>
+
+                            <ImageView
+                                    fx:id="imgMamifero"
+                                    fitWidth="300"
+                                    fitHeight="250"
+                                    preserveRatio="true"/>
+
+                        </VBox>
+
+                    </StackPane>
+
+
+                    <VBox
+                            alignment="CENTER"
+                            spacing="5">
+
+                        <Label
+                                fx:id="lblNombre"
+                                text="Selecciona un mamífero"
+                                styleClass="animal-name"/>
+
+                        <Label
+                                fx:id="lblAccion"
+                                text="Esperando una acción..."
+                                styleClass="animal-action"/>
+
+                    </VBox>
+
+
+
+                    <VBox
+                            alignment="CENTER"
+                            spacing="12">
+
+                        <Label
+                                text="ACCIONES"
+                                styleClass="section-title"/>
+
+                        <FlowPane
+                                fx:id="actionPanel"
+                                alignment="CENTER"
+                                hgap="10"
+                                vgap="10">
+
+                            <Button
+                                    text="🍖  Comer"
+                                    onAction="#onComer"
+                                    styleClass="action-button"/>
+
+                            <Button
+                                    text="🚶  Caminar"
+                                    onAction="#onCaminar"
+                                    styleClass="action-button"/>
+
+                            <Button
+                                    text="🏃  Correr"
+                                    onAction="#onCorrer"
+                                    styleClass="action-button"/>
+
+                            <Button
+                                    text="💤  Dormir"
+                                    onAction="#onDormir"
+                                    styleClass="action-button"/>
+
+                        </FlowPane>
+
+                    </VBox>
+
+                </VBox>
+            </center>
+
+        </BorderPane>
+    </center>
+
+</BorderPane>
+

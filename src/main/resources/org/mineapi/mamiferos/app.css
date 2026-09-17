@@ -1,0 +1,403 @@
+.root {
+    -fx-background-color: #0f1117;
+    -fx-font-family: "Segoe UI";
+}
+
+.header {
+    -fx-background-color: #15181f;
+
+    -fx-padding: 20px 28px;
+
+    -fx-border-color: #252a34;
+    -fx-border-width: 0 0 1px 0;
+}
+.mammal-type {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 13px;
+    -fx-font-weight: normal;
+    -fx-text-fill: #737b89;
+}
+.title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #f1f3f5;
+}
+
+.subtitle {
+    -fx-font-size: 12px;
+
+    -fx-text-fill: #858c99;
+}
+
+.status {
+    -fx-background-color: #10271f;
+
+    -fx-background-radius: 20px;
+
+    -fx-padding: 7px 12px;
+
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #4ade80;
+}
+
+.sidebar {
+    -fx-background-color: #13161c;
+
+    -fx-padding: 22px 14px;
+
+    -fx-border-color: #252a34;
+    -fx-border-width: 0 1px 0 0;
+}
+
+.section-title {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #737b89;
+}
+
+.list-view {
+    -fx-background-color: transparent;
+
+    -fx-border-color: transparent;
+
+    -fx-control-inner-background: transparent;
+}
+
+.list-cell {
+    -fx-background-color: transparent;
+
+    -fx-background-radius: 10px;
+
+    -fx-padding: 12px 14px;
+
+    -fx-font-size: 13px;
+
+    -fx-text-fill: #aeb5c1;
+}
+
+.list-cell:hover {
+    -fx-background-color: #1c212a;
+
+    -fx-text-fill: #f1f3f5;
+}
+
+.list-cell:selected {
+    -fx-background-color: #24332f;
+
+    -fx-text-fill: #5ee59a;
+
+    -fx-font-weight: bold;
+}
+
+.animal-content {
+    -fx-background-color: #0f1117;
+
+    -fx-padding: 30px 40px;
+}
+
+.pixel-container {
+    -fx-background-color: #171a21;
+
+    -fx-background-radius: 16px;
+
+    -fx-border-color: #272d37;
+    -fx-border-width: 1px;
+
+    -fx-border-radius: 16px;
+
+    -fx-effect:
+            dropshadow(
+                    gaussian,
+                    rgba(0, 0, 0, 0.30),
+                    18,
+                    0,
+                    0,
+                    5
+            );
+}
+
+.scene-label {
+    -fx-font-size: 10px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #697180;
+}
+
+.animal-name {
+    -fx-font-size: 25px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #f3f4f6;
+}
+
+.animal-action {
+    -fx-font-size: 13px;
+
+    -fx-text-fill: #858c99;
+}
+
+.action-button {
+
+    -fx-background-color: #191d25;
+
+    -fx-background-radius: 10px;
+
+    -fx-border-color: #2b313c;
+
+    -fx-border-width: 1px;
+
+    -fx-border-radius: 10px;
+
+    -fx-padding: 11px 18px;
+
+    -fx-font-size: 12px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #c5cad2;
+
+    -fx-cursor: hand;
+}
+
+.action-button:hover {
+
+    -fx-background-color: #20262f;
+
+    -fx-border-color: #3b4653;
+
+    -fx-text-fill: #ffffff;
+}
+
+.action-button:pressed {
+
+    -fx-background-color: #26332f;
+
+    -fx-border-color: #4ade80;
+
+    -fx-text-fill: #4ade80;
+}
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical {
+    -fx-pref-width: 8px;
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #303640;
+
+    -fx-background-radius: 10px;
+}
+
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #454d59;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+
+    -fx-padding: 0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-background-color: transparent;
+}
+
+.mammal-list {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 2px;
+}
+
+.mammal-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 4px 0;
+}
+
+.mammal-card {
+    -fx-background-color: #171a21;
+
+    -fx-background-radius: 12px;
+
+    -fx-border-color: #272d37;
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+
+    -fx-padding: 9px 11px;
+
+    -fx-pref-height: 75px;
+
+    -fx-cursor: hand;
+}
+
+.mammal-card:hover {
+    -fx-background-color: #1c212a;
+
+    -fx-border-color: #343c49;
+}
+
+
+.mammal-list .list-cell:selected .mammal-card {
+    -fx-background-color: #1b2925;
+
+    -fx-border-color: #4ade80;
+}
+
+.mammal-image {
+    -fx-background-radius: 9px;
+}
+
+.mammal-name {
+    -fx-font-size: 13px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #f1f3f5;
+}
+
+
+.mammal-riddle {
+    -fx-font-size: 10px;
+
+    -fx-text-fill: #858c99;
+
+    -fx-line-spacing: 1px;
+}
+
+
+.mammal-list .list-cell:selected .mammal-name {
+    -fx-text-fill: #5ee59a;
+}
+
+
+.mammal-list .list-cell:selected .mammal-riddle {
+    -fx-text-fill: #a7b8b0;
+}
+
+
+.mammal-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+
+    -fx-padding: 0;
+}
+
+.mammal-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.mammal-scroll .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.mammal-scroll .scroll-bar:vertical {
+    -fx-pref-width: 7px;
+}
+
+.mammal-scroll .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+.mammal-scroll .scroll-bar:vertical .thumb {
+    -fx-background-color: #303640;
+    -fx-background-radius: 10px;
+}
+
+.mammal-scroll .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #454d59;
+}
+
+.mammal-scroll .increment-button,
+.mammal-scroll .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.mammal-scroll .increment-arrow,
+.mammal-scroll .decrement-arrow {
+    -fx-background-color: transparent;
+}
+
+.header-button {
+    -fx-background-color: #191d25;
+
+    -fx-background-radius: 9px;
+
+    -fx-border-color: #2b313c;
+    -fx-border-width: 1px;
+    -fx-border-radius: 9px;
+
+    -fx-padding: 8px 13px;
+
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #c5cad2;
+
+    -fx-cursor: hand;
+}
+
+
+/* Hover */
+
+.header-button:hover {
+    -fx-background-color: #20262f;
+
+    -fx-border-color: #3b4653;
+
+    -fx-text-fill: #ffffff;
+}
+
+
+/* Nuevo mamífero */
+
+.header-button.primary {
+    -fx-background-color: #24332f;
+
+    -fx-border-color: #365044;
+
+    -fx-text-fill: #5ee59a;
+}
+
+.header-button.primary:hover {
+    -fx-background-color: #2b4038;
+
+    -fx-border-color: #4ade80;
+
+    -fx-text-fill: #86efac;
+}
+
+
+/* Cerrar */
+
+.header-button.close-button {
+    -fx-background-color: #21191c;
+
+    -fx-border-color: #39272c;
+
+    -fx-text-fill: #d97885;
+
+    -fx-padding: 8px 11px;
+}
+
+.header-button.close-button:hover {
+    -fx-background-color: #3a2025;
+
+    -fx-border-color: #d95c6b;
+
+    -fx-text-fill: #ff8b98;
+}
