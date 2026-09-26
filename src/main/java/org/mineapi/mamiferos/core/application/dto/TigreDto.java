@@ -1,12 +1,14 @@
 package org.mineapi.mamiferos.core.application.dto;
 
 public record TigreDto(
-        Float tamanoGarras,
-        Integer velocidad,
+        String tamanoGarras,
+        String velocidad,
         String habita,
-        Float altura,
-        Float largo,
-        Float peso,
-        String nombreCientifico
+        String altura,
+        String largo,
+        String peso,
+        String nombreCientifico,
+        String pathImagePerfil,
+        String especieTigre
 ) {
 }

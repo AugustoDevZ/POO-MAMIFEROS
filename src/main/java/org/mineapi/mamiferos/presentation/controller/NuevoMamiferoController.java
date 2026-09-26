@@ -10,6 +10,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.mineapi.mamiferos.core.application.dto.TigreDto;
+import org.mineapi.mamiferos.core.application.useCase.TigreUseCase;
+import org.mineapi.mamiferos.core.domain.entities.Mamifero;
+import org.mineapi.mamiferos.core.domain.entities.caninos.Lobo;
+import org.mineapi.mamiferos.core.domain.entities.caninos.Perro;
+import org.mineapi.mamiferos.core.domain.entities.felinos.Guepardo;
+import org.mineapi.mamiferos.core.domain.entities.felinos.Leon;
+import org.mineapi.mamiferos.core.domain.entities.felinos.Tigre;
 
 import java.io.IOException;
 
@@ -24,6 +32,7 @@ public class NuevoMamiferoController {
     @FXML private ComboBox<String> cmbTipo;
     @FXML private ComboBox<String> cmbAnimal;
     @FXML private TextField txtNombreCientifico, txtHabita, txtAltura, txtLargo, txtPeso, txtPathImagePerfil;
+    @FXML private TextField txtTamanoGarras, txtVelocidad;
     @FXML
     private void initialize() {
         cmbTipo.getItems().addAll("Felino", "Canino");
@@ -127,8 +136,7 @@ public class NuevoMamiferoController {
     }
     @FXML private void onCrear(){
         int tipoMamifero = cmbTipo.getSelectionModel().getSelectedIndex();
-        int animal = cmbAnimal.getSelectionModel().getSelectedIndex();
-        if (tipoMamifero == -1 || animal == -1){
+        if (tipoMamifero == -1 || cmbAnimal.getSelectionModel().getSelectedIndex() == -1){
             mostrarError("Debes rellenar lso campos", "Para poder crear un nuevo mamifero debes rellenar todos los campo o hacer clic en random.");
             return;
         }
@@ -138,10 +146,50 @@ public class NuevoMamiferoController {
         String altura = txtAltura.getText();
         String largo = txtLargo.getText();
         String peso = txtPeso.getText();
-        String Path = txtPathImagePerfil.getText();
+        String path = txtPathImagePerfil.getText();
+        String animal = cmbAnimal.getValue();
 
-        
+
+        switch (animal) {
+            case "León" -> {
+
+            }
+            case "Tigre" -> {
+
+                var newTigre = new TigreDto(
+                        txtTamanoGarras.getText(),
+                        txtVelocidad.getText(),
+                        habita,
+                        altura,
+                        largo,
+                        peso,
+                        nombre,
+                        path,
+                        txtFelino.getText()
+                );
+                try {
+                  TigreUseCase.create(newTigre);
+                }catch (IllegalArgumentException e){
+                    mostrarError("Datos inválidos" + nombre, e.getMessage());
+                }
+            }
+            case "Guepardo" -> {
+
+
+            }
+            case "Lobo" -> {
+
+
+            }
+            case "Perro" -> {
+
+            }
+        };
+
+
+
     }
+
     @FXML private void onTipoChanged(){
 
     }

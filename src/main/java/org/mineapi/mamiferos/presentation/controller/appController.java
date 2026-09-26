@@ -17,10 +17,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.mineapi.mamiferos.core.domain.Enum.AccionType;
 import org.mineapi.mamiferos.core.domain.entities.Mamifero;
-import org.mineapi.mamiferos.core.domain.entities.caninos.Lobo;
-import org.mineapi.mamiferos.core.domain.entities.caninos.PerroSalvajeAfricano;
-import org.mineapi.mamiferos.core.domain.entities.felinos.Guepardo;
-import org.mineapi.mamiferos.core.domain.entities.felinos.Leon;
 import org.mineapi.mamiferos.core.domain.entities.felinos.Tigre;
 import org.mineapi.mamiferos.core.domain.valueobjets.Accion;
 
