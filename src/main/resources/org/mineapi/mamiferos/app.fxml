@@ -27,161 +27,30 @@
                     text="MAMÍFEROS"
                     styleClass="title"/>
 
+
             <Button
-                    text="+  Nuevo mamífero"
+                    text="+ Crear Mamífero"
                     onAction="#onNuevoMamifero"
                     maxWidth="Infinity"
                     styleClass="action-button"/>
 
             <ScrollPane
+                    fx:id="lstCardContent"
                     fitToWidth="true"
                     VBox.vgrow="ALWAYS"
                     styleClass="mammal-scroll">
-
-                <VBox
-                        spacing="6"
-                        styleClass="mammal-list">
-
-
-                    <HBox
-                            prefHeight="52"
-                            spacing="10"
-                            alignment="CENTER_LEFT"
-                            styleClass="mammal-card">
-
-                        <ImageView
-                                fitWidth="36"
-                                fitHeight="36"
-                                preserveRatio="true"/>
-
-                        <VBox
-                                alignment="CENTER_LEFT"
-                                spacing="2">
-
-                            <Label
-                                    text="León"
-                                    styleClass="mammal-name"/>
-
-                            <Label
-                                    text="Tipo · Felino"
-                                    styleClass="mammal-type"/>
-
-                        </VBox>
-                    </HBox>
+                <content>
+                    <VBox
+                            fx:id="cardContainer"
+                            spacing="6"
+                            fillWidth="true"
+                            styleClass="mammal-list">
 
 
+                        <!-- aqui load de cards -->
 
-                    <HBox
-                            prefHeight="52"
-                            spacing="10"
-                            alignment="CENTER_LEFT"
-                            styleClass="mammal-card">
-
-                        <ImageView
-                                fitWidth="36"
-                                fitHeight="36"
-                                preserveRatio="true"/>
-
-                        <VBox
-                                alignment="CENTER_LEFT"
-                                spacing="2">
-
-                            <Label
-                                    text="Lobo"
-                                    styleClass="mammal-name"/>
-
-                            <Label
-                                    text="Tipo · Canino"
-                                    styleClass="mammal-type"/>
-
-                        </VBox>
-                    </HBox>
-
-
-
-                    <HBox
-                            prefHeight="52"
-                            spacing="10"
-                            alignment="CENTER_LEFT"
-                            styleClass="mammal-card">
-
-                        <ImageView
-                                fitWidth="36"
-                                fitHeight="36"
-                                preserveRatio="true"/>
-
-                        <VBox
-                                alignment="CENTER_LEFT"
-                                spacing="2">
-
-                            <Label
-                                    text="Tigre"
-                                    styleClass="mammal-name"/>
-
-                            <Label
-                                    text="Tipo · Felino"
-                                    styleClass="mammal-type"/>
-
-                        </VBox>
-                    </HBox>
-
-
-
-                    <HBox
-                            prefHeight="52"
-                            spacing="10"
-                            alignment="CENTER_LEFT"
-                            styleClass="mammal-card">
-
-                        <ImageView
-                                fitWidth="36"
-                                fitHeight="36"
-                                preserveRatio="true"/>
-
-                        <VBox
-                                alignment="CENTER_LEFT"
-                                spacing="2">
-
-                            <Label
-                                    text="Guepardo"
-                                    styleClass="mammal-name"/>
-
-                            <Label
-                                    text="Tipo · Felino"
-                                    styleClass="mammal-type"/>
-
-                        </VBox>
-                    </HBox>
-
-
-
-                    <HBox
-                            prefHeight="52"
-                            spacing="10"
-                            alignment="CENTER_LEFT"
-                            styleClass="mammal-card">
-
-                        <ImageView
-                                fitWidth="36"
-                                fitHeight="36"
-                                preserveRatio="true"/>
-
-                        <VBox
-                                alignment="CENTER_LEFT"
-                                spacing="2">
-
-                            <Label
-                                    text="Perro salvaje africano"
-                                    styleClass="mammal-name"/>
-
-                            <Label
-                                    text="Tipo · Canino"
-                                    styleClass="mammal-type"/>
-
-                        </VBox>
-                    </HBox>
-
-                </VBox>
+                    </VBox>
+                </content>
             </ScrollPane>
 
 
@@ -196,7 +65,7 @@
             <top>
                 <HBox
                         alignment="CENTER_RIGHT"
-                        styleClass="header">
+                        styleClass="header-">
 
                     <Button
                             text="⌘  Abrir Consola"
@@ -229,12 +98,18 @@
                                     styleClass="scene-label"/>
 
                             <ImageView
-                                    fx:id="imgMamifero"
+                                    fx:id="imgMamiferoEscenario"
                                     fitWidth="300"
                                     fitHeight="250"
                                     preserveRatio="true"/>
 
                         </VBox>
+                        <Button
+                                fx:id="btnAnimation"
+                                text="⏸"
+                                onAction="#onToggleAnimation"
+                                StackPane.alignment="TOP_RIGHT"
+                                styleClass="animation-button"/>
 
                     </StackPane>
 

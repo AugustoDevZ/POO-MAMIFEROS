@@ -8,36 +8,42 @@
 <HBox
         xmlns="http://javafx.com/javafx"
         xmlns:fx="http://javafx.com/fxml"
+        fx:controller="org.mineapi.mamiferos.presentation.controller.CardController"
         alignment="CENTER_LEFT"
         spacing="12"
         prefHeight="75"
+        maxWidth="Infinity"
         stylesheets="@app.css">
 
-    <!-- IMAGEN -->
-    <ImageView
-            fx:id="imgMamifero"
-            fitWidth="55"
-            fitHeight="55"
-            preserveRatio="true"/>
-
-    <!-- INFORMACIÓN -->
-    <VBox
+    <HBox onMouseClicked="#onClick"
+            prefHeight="52"
+            maxWidth="Infinity"
+            spacing="10"
             alignment="CENTER_LEFT"
-            spacing="4"
-            HBox.hgrow="ALWAYS">
+            styleClass="mammal-card">
 
-        <Label
-                fx:id="lblNombre"
-                text="León"
-                styleClass="mammal-name"/>
+        <ImageView
+                fx:id="imgMamifero"
+                fitWidth="36"
+                fitHeight="36"
+                preserveRatio="true"/>
 
-        <Label
-                fx:id="lblAdivinanza"
-                text="Tengo una gran melena y vivo en la sabana."
-                wrapText="true"
-                styleClass="mammal-riddle"/>
+        <VBox
+                alignment="CENTER_LEFT"
+                spacing="2">
 
-    </VBox>
+            <Label
+                    fx:id="lblAnimal"
+                    text="Lobo"
+                    styleClass="mammal-name"/>
+
+            <Label
+                    fx:id="lblTipo"
+                    text="Tipo · Canino"
+                    styleClass="mammal-type"/>
+
+        </VBox>
+    </HBox>
 
 </HBox>
 
