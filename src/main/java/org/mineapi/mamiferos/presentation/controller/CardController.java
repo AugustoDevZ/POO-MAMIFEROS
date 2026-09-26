@@ -26,6 +26,7 @@ public class CardController {
 
         if (resource == null) {
             mostrarError("Error al cargar un Card de Sidebar", "No se encontró la imagen: " + path);
+            return;
         }
 
         imgMamifero.setImage(

@@ -210,12 +210,22 @@
                                     GridPane.rowIndex="5"
                                     styleClass="form-label"/>
 
-                            <TextField
-                                    fx:id="txtPathImagePerfil"
-                                    promptText="/images/tigre/tigrePerfil.png"
+                            <HBox
+                                    spacing="8"
                                     GridPane.columnIndex="1"
-                                    GridPane.rowIndex="5"
-                                    styleClass="form-input"/>
+                                    GridPane.rowIndex="5">
+
+                                <TextField
+                                        fx:id="txtPathImagePerfil"
+                                        promptText="Seleccione una imagen..."
+                                        HBox.hgrow="ALWAYS"
+                                        styleClass="form-input"/>
+
+                                <Button
+                                        text="Explorar"
+                                        onAction="#onSeleccionarImagen"
+                                        styleClass="header-button"/>
+                            </HBox>
 
                         </GridPane>
 

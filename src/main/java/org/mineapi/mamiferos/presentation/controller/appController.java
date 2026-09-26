@@ -131,7 +131,7 @@ public class appController {
 
             frame++;
         }
-
+        System.out.println(frames.size());
         imgMamiferoEscenario.setImage(frames.get(0));
 
         final int[] indice = {0};
@@ -149,6 +149,7 @@ public class appController {
                             imgMamiferoEscenario.setImage(
                                     frames.get(indice[0])
                             );
+                            System.out.println("mostrando imagen "+ indice[0]);
                         }
                 )
         );
@@ -164,15 +165,19 @@ public class appController {
     }
 
     @FXML protected void onCorrer() {
+        if (actualScene == null) return;
         renderizarEscenario(actualScene, AccionType.CORRER);
     }
     @FXML protected void onDormir() {
+        if (actualScene == null) return;
         renderizarEscenario(actualScene, AccionType.DORMIR);
     }
     @FXML protected void onComunicarse() {
+        if (actualScene == null) return;
         renderizarEscenario(actualScene, AccionType.COMUNICARSE);
     }
     @FXML protected void onComer() {
+        if (actualScene == null) return;
         renderizarEscenario(actualScene, AccionType.COMER);
     }
     @FXML protected void onNuevoMamifero() {

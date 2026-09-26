@@ -9,6 +9,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.mineapi.mamiferos.core.application.dto.TigreDto;
@@ -20,6 +21,7 @@ import org.mineapi.mamiferos.core.domain.entities.felinos.Guepardo;
 import org.mineapi.mamiferos.core.domain.entities.felinos.Leon;
 import org.mineapi.mamiferos.core.domain.entities.felinos.Tigre;
 
+import java.io.File;
 import java.io.IOException;
 
 public class NuevoMamiferoController {
@@ -198,6 +200,28 @@ public class NuevoMamiferoController {
     }
     @FXML private void onAnimalChanged(){
 
+    }
+    @FXML private void onSeleccionarImagen(){
+        FileChooser fileChooser = new FileChooser();
+
+        fileChooser.setTitle("Seleccionar imagen");
+
+        fileChooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter(
+                        "Imágenes",
+                        "*.png",
+                        "*.jpg",
+                        "*.jpeg"
+                )
+        );
+
+        Stage stage = (Stage) txtPathImagePerfil.getScene().getWindow();
+
+        File archivo = fileChooser.showOpenDialog(stage);
+
+        if (archivo != null) {
+            txtPathImagePerfil.setText(archivo.getAbsolutePath());
+        }
     }
 
     private void mostrarError(String titulo, String mensaje) {
