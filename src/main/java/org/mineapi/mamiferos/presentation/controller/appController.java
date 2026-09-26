@@ -31,10 +31,12 @@ public class appController {
     @FXML private VBox cardContainer;
     @FXML private ImageView imgMamiferoEscenario;
     private Timeline timeline;
+    private Mamifero actualScene;
 
     @FXML protected void initialize(){
-
+        actualScene = null;
         loadOptions();
+
     }
 
     private void loadOptions(){
@@ -99,7 +101,7 @@ public class appController {
         if (a == null){
             throw new IllegalArgumentException("No se obtuvo la acción a realizar");
         }
-
+        actualScene = mamifero;
         renderizarEscenario(a);
     }
 
@@ -162,25 +164,16 @@ public class appController {
     }
 
     @FXML protected void onCorrer() {
-        renderizarEscenario(new Tigre(
-                "/images/tigre/tigreDormir02.png",
-                "Tigre naranja",
-                11.0f,
-                2,
-                "Natural Pradera",
-                12.5f,
-                1.2f,
-                30f,
-                "Panthera tigris"), AccionType.CORRER);
+        renderizarEscenario(actualScene, AccionType.CORRER);
     }
     @FXML protected void onDormir() {
-
+        renderizarEscenario(actualScene, AccionType.DORMIR);
     }
-    @FXML protected void onCaminar() {
-
+    @FXML protected void onComunicarse() {
+        renderizarEscenario(actualScene, AccionType.COMUNICARSE);
     }
     @FXML protected void onComer() {
-
+        renderizarEscenario(actualScene, AccionType.COMER);
     }
     @FXML protected void onNuevoMamifero() {
         try {

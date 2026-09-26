@@ -1,9 +1,16 @@
 package org.mineapi.mamiferos.presentation.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class CardController {
     @FXML protected ImageView imgMamifero;
@@ -13,11 +20,17 @@ public class CardController {
 
     public void setImage(String path) {
 
-        Image image = new Image(
-                getClass().getResource(path).toExternalForm()
-        );
+        System.out.println("Imagen solicitada: " + path);
 
-        imgMamifero.setImage(image);
+        var resource = getClass().getResource(path);
+
+        if (resource == null) {
+            mostrarError("Error al cargar un Card de Sidebar", "No se encontró la imagen: " + path);
+        }
+
+        imgMamifero.setImage(
+                new Image(resource.toExternalForm())
+        );
     }
 
     public void setAnimal(String animal) {
@@ -35,6 +48,34 @@ public class CardController {
 
         if (onClick != null) {
             onClick.run();
+        }
+    }
+
+    private void mostrarError(String titulo, String mensaje) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource(
+                            "/org/mineapi/mamiferos/error.fxml"
+                    )
+            );
+
+            Parent root = loader.load();
+
+            ErrorController controller = loader.getController();
+            controller.setTitulo(titulo);
+            controller.setMensaje(mensaje);
+
+            Stage stage = new Stage();
+
+            stage.setTitle("Error");
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setResizable(false);
+            stage.setScene(new Scene(root));
+
+            stage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -152,8 +152,8 @@
                                     styleClass="action-button"/>
 
                             <Button
-                                    text="🚶  Caminar"
-                                    onAction="#onCaminar"
+                                    text="🚶  Comunicarse"
+                                    onAction="#onComunicarse"
                                     styleClass="action-button"/>
 
                             <Button
