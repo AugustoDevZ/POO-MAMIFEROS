@@ -99,4 +99,8 @@ public class TigreUseCase {
             );
         }
     }
+
+    public static List<Tigre> getTigreList() {
+        return tigreList;
+    }
 }

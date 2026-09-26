@@ -50,6 +50,7 @@
                     onAction="#onCreateRandom"
                     styleClass="action-button"/>
             <Button
+                    fx:id="btnCrearMami"
                     text="Crear mamífero"
                     onAction="#onCrear"
                     styleClass="action-button"/>

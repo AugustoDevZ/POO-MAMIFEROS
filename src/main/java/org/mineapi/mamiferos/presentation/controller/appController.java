@@ -15,6 +15,7 @@ import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.mineapi.mamiferos.core.application.useCase.TigreUseCase;
 import org.mineapi.mamiferos.core.domain.Enum.AccionType;
 import org.mineapi.mamiferos.core.domain.entities.Mamifero;
 import org.mineapi.mamiferos.core.domain.entities.felinos.Tigre;
@@ -33,19 +34,18 @@ public class appController {
 
     @FXML protected void initialize(){
 
-        cargarCard(new Tigre(
-                "/images/tigre/tigreDormir02.png",
-                "Tigre naranja",
-                11.0f,
-                2,
-                "Natural Pradera",
-                12.5f,
-                1.2f,
-                30f,
-                "Panthera tigris"
-
-        ));
+        loadOptions();
     }
+
+    private void loadOptions(){
+
+        List<Tigre> tigres = TigreUseCase.getTigreList();
+
+        for (Tigre t : tigres){
+            cargarCard(t);
+        }
+    }
+
     private void cargarCard(Mamifero mamifero) {
 
         try {
@@ -211,6 +211,9 @@ public class appController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        loadOptions();
+
     }
     @FXML protected void onCambiarConsola() {
         mostrarError("Error interno", "No se peude renderizar la consola");
