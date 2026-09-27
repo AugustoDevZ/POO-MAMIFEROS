@@ -99,4 +99,43 @@ public class MamiferoValidateUseCase {
             throw new IllegalArgumentException("La ruta no es válida", e);
         }
     }
+
+    public static Float isValidColmillos(
+            String value,
+            Float minValue,
+            Float maxValue
+    ) {
+        return isValidFloat(
+                value,
+                "tamaño de colmillos",
+                minValue,
+                maxValue
+        );
+    }
+
+
+    public static Integer isValidFuerzaMordida(
+            String value,
+            Integer minValue,
+            Integer maxValue
+    ) {
+
+        Integer fuerza = isValidInteger(
+                value,
+                "La fuerza de mordida"
+        );
+
+        if (fuerza < minValue || fuerza > maxValue) {
+
+            throw new IllegalArgumentException(
+                    "La fuerza de mordida debe estar entre "
+                            + minValue
+                            + " y "
+                            + maxValue
+                            + " PSI."
+            );
+        }
+
+        return fuerza;
+    }
 }

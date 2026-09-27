@@ -12,6 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.mineapi.mamiferos.core.application.dto.PerroDto;
 import org.mineapi.mamiferos.core.application.dto.TigreDto;
 import org.mineapi.mamiferos.core.application.useCase.TigreUseCase;
 import org.mineapi.mamiferos.core.domain.entities.Mamifero;
@@ -186,6 +187,22 @@ public class NuevoMamiferoController {
 
             }
             case "Perro" -> {
+
+                PerroDto nuevoPerro = new PerroDto(
+
+                        txtCanino.getText(),
+                        txtCanino2.getText(),
+
+                        habita,
+                        altura,
+                        largo,
+                        peso,
+
+                        nombre,
+                        path,
+
+                        txtCanino.getText()
+                );
 
             }
         };

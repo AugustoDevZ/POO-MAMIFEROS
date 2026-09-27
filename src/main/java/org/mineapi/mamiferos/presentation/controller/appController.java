@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,9 +16,11 @@ import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.mineapi.mamiferos.core.application.useCase.PerroUseCase;
 import org.mineapi.mamiferos.core.application.useCase.TigreUseCase;
 import org.mineapi.mamiferos.core.domain.Enum.AccionType;
 import org.mineapi.mamiferos.core.domain.entities.Mamifero;
+import org.mineapi.mamiferos.core.domain.entities.caninos.Perro;
 import org.mineapi.mamiferos.core.domain.entities.felinos.Tigre;
 import org.mineapi.mamiferos.core.domain.valueobjets.Accion;
 
@@ -30,6 +33,8 @@ public class appController {
     @FXML private ScrollPane lstCardContent;
     @FXML private VBox cardContainer;
     @FXML private ImageView imgMamiferoEscenario;
+    @FXML private Label lblNombre;
+    @FXML private Label lblAccion;
     private Timeline timeline;
     private Mamifero actualScene;
 
@@ -39,12 +44,25 @@ public class appController {
 
     }
 
-    private void loadOptions(){
+    private void loadOptions() {
 
-        List<Tigre> tigres = TigreUseCase.getTigreList();
+        cardContainer.getChildren().clear();
 
-        for (Tigre t : tigres){
-            cargarCard(t);
+        PerroUseCase.cargarPerroPrueba();
+
+        List<Tigre> tigres =
+                TigreUseCase.getTigreList();
+
+        for (Tigre tigre : tigres) {
+            cargarCard(tigre);
+        }
+
+
+        List<Perro> perros =
+                PerroUseCase.getPerroList();
+
+        for (Perro perro : perros) {
+            cargarCard(perro);
         }
     }
 
@@ -95,13 +113,22 @@ public class appController {
         }
     }
 
-    private void renderizarEscenario(Mamifero mamifero, AccionType type){
+    private void renderizarEscenario(Mamifero mamifero, AccionType type) {
 
         Accion a = selectAccionType(mamifero, type);
-        if (a == null){
-            throw new IllegalArgumentException("No se obtuvo la acción a realizar");
+
+        if (a == null) {
+            throw new IllegalArgumentException(
+                    "No se obtuvo la acción a realizar"
+            );
         }
+
         actualScene = mamifero;
+
+        lblNombre.setText(mamifero.getNombreCientifico());
+
+        lblAccion.setText(a.getMessage());
+
         renderizarEscenario(a);
     }
 
@@ -131,6 +158,18 @@ public class appController {
 
             frame++;
         }
+
+        if (frames.isEmpty()) {
+
+            mostrarError(
+                    "Animación no encontrada",
+                    "No se encontraron frames para: "
+                            + basicPath
+            );
+
+            return;
+        }
+
         System.out.println(frames.size());
         imgMamiferoEscenario.setImage(frames.get(0));
 
