@@ -146,15 +146,37 @@ public class appController {
 
         while (true) {
 
-            String path = basicPath + String.format("%02d.png", frame);
+            // Primero intenta encontrar:
+            // imagen01.png, imagen02.png, etc.
+            String pathConCero =
+                    basicPath + String.format("%02d.png", frame);
 
-            var resource = getClass().getResource(path);
+            var resource =
+                    getClass().getResource(pathConCero);
 
+
+            // Si no existe, intenta:
+            // imagen1.png, imagen2.png, etc.
+            if (resource == null) {
+
+                String pathSinCero =
+                        basicPath + frame + ".png";
+
+                resource =
+                        getClass().getResource(pathSinCero);
+            }
+
+
+            // Si no existe ninguno de los dos formatos,
+            // significa que terminaron los frames.
             if (resource == null) {
                 break;
             }
 
-            frames.add(new Image(resource.toExternalForm()));
+
+            frames.add(
+                    new Image(resource.toExternalForm())
+            );
 
             frame++;
         }

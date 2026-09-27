@@ -14,6 +14,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.mineapi.mamiferos.core.application.dto.PerroDto;
 import org.mineapi.mamiferos.core.application.dto.TigreDto;
+import org.mineapi.mamiferos.core.application.useCase.PerroUseCase;
 import org.mineapi.mamiferos.core.application.useCase.TigreUseCase;
 import org.mineapi.mamiferos.core.domain.entities.Mamifero;
 import org.mineapi.mamiferos.core.domain.entities.caninos.Lobo;
@@ -30,7 +31,14 @@ public class NuevoMamiferoController {
     @FXML private VBox felinoSection;
     @FXML private VBox caninoSection;
     @FXML private Label lblCanino, lblCanino2;
-    @FXML private TextField txtCanino2, txtCanino;
+    @FXML
+    private TextField txtCanino2, txtCanino;
+
+    @FXML
+    private TextField txtColorCanino;
+
+    @FXML
+    private TextField txtTamañoColmillosCanino;
     @FXML private Label lblFelino, lblFelino2;
     @FXML private TextField txtFelino2, txtFelino;
     @FXML private ComboBox<String> cmbTipo;
@@ -186,12 +194,14 @@ public class NuevoMamiferoController {
 
 
             }
+
             case "Perro" -> {
 
                 PerroDto nuevoPerro = new PerroDto(
 
-                        txtCanino.getText(),
-                        txtCanino2.getText(),
+                        txtColorCanino.getText(),
+
+                        txtTamañoColmillosCanino.getText(),
 
                         habita,
                         altura,
@@ -204,7 +214,22 @@ public class NuevoMamiferoController {
                         txtCanino.getText()
                 );
 
+
+                try {
+
+                    PerroUseCase.create(nuevoPerro);
+
+                } catch (IllegalArgumentException e) {
+
+                    mostrarError(
+                            "Datos inválidos - " + nombre,
+                            e.getMessage()
+                    );
+
+                    return;
+                }
             }
+
         };
 
         Stage stage = (Stage) btnCrearMami.getScene().getWindow();

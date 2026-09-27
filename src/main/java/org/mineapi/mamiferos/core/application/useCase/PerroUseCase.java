@@ -68,9 +68,8 @@ public class PerroUseCase {
          * porque ese método busca una ruta física del disco.
          */
         String path =
-                MamiferoValidateUseCase.isValidText(
-                        dto.pathImagePerfil(),
-                        "Imagen de perfil"
+                MamiferoValidateUseCase.isValidImagePath(
+                        dto.pathImagePerfil()
                 );
 
         Integer fuerzaMordida =
@@ -110,7 +109,7 @@ public class PerroUseCase {
 
         Perro perro = new Perro(
 
-                "/images/perro/perroPerfil.png",
+                "/images/Perro/perroDormir1.png",
 
                 "Marrón, negro y blanco",
 

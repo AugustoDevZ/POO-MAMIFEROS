@@ -20,7 +20,7 @@ public class TigreUseCase {
         Float largo = MamiferoValidateUseCase.isValidLargo(dto.largo(), 0.30F, 3.8F);
         Float peso = MamiferoValidateUseCase.isValidPeso(dto.peso(), 1.0F, 320.0F);
         String nombre = MamiferoValidateUseCase.isValidText(dto.nombreCientifico(), "Nombre científico");
-        String path = MamiferoValidateUseCase.isValidPath(dto.pathImagePerfil());
+        String path = MamiferoValidateUseCase.isValidImagePath(dto.pathImagePerfil());
         String especie = MamiferoValidateUseCase.isValidText(dto.especieTigre(), "Especie");
 
         var newTigre = new Tigre(
