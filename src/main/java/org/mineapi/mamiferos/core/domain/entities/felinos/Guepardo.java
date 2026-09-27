@@ -5,7 +5,7 @@ import org.mineapi.mamiferos.core.domain.entities.Felino;
 
 public class Guepardo extends Felino {
 
-    protected Guepardo(String pathImagePerfil, Float tamañoGarras, Integer velocidad, String habita, Float altura, Float largo, Float peso, String nombreCientifico) {
+    public Guepardo(String pathImagePerfil, Float tamañoGarras, Integer velocidad, String habita, Float altura, Float largo, Float peso, String nombreCientifico) {
         super(pathImagePerfil, tamañoGarras, velocidad, habita, altura, largo, peso, nombreCientifico);
     }
 
