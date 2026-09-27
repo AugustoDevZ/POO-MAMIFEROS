@@ -42,6 +42,7 @@ El objetivo principal del proyecto es aplicar los fundamentos de la **Programaci
 [César Augusto Rodríguez - N00456648](https://github.com/AugustoDevZ)
 ¡Pongan sus nombres aqui o no figuran luego!
 
+[Lopez Siccha Luis Angel - N00451245]
 **
 
 Proyecto académico — Técnicas de Programación Orientada a Objetos.
