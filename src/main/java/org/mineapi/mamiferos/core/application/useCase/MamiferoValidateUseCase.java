@@ -47,7 +47,7 @@ public class MamiferoValidateUseCase {
         }
         return velocidad;
     }
-    private static Integer isValidInteger(String valor, String campo) {
+    public static Integer isValidInteger(String valor, String campo) {
 
         try {
 

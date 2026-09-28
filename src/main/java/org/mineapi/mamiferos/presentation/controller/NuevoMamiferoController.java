@@ -12,9 +12,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.mineapi.mamiferos.core.application.dto.LoboDto;
 import org.mineapi.mamiferos.core.application.dto.PerroDto;
 import org.mineapi.mamiferos.core.application.dto.TigreDto;
 import org.mineapi.mamiferos.core.application.useCase.GuepardoUseCase;
+import org.mineapi.mamiferos.core.application.useCase.LobouseCase;
 import org.mineapi.mamiferos.core.application.useCase.PerroUseCase;
 import org.mineapi.mamiferos.core.application.useCase.TigreUseCase;
 import org.mineapi.mamiferos.core.domain.entities.Mamifero;
@@ -143,11 +145,11 @@ public class NuevoMamiferoController {
     @FXML private void onCreateRandom(){
         Random random = new Random();
 
-        switch (random.nextInt(3)) {
+        switch (random.nextInt(4)) {
             case 0 -> TigreUseCase.generarTigreAleatorio();
             case 1 -> PerroUseCase.generarPerroAleatorio();
             case 2 -> GuepardoUseCase.generarGuepardoAleatorio();
-            //case 3 -> generarLeonAleatorio();
+            case 3 -> LobouseCase.generarLoboAleatorio();
             //case 4 -> generarElefanteAleatorio();
             default -> throw new IllegalStateException();
         };
@@ -202,7 +204,24 @@ public class NuevoMamiferoController {
             }
             case "Lobo" -> {
 
+                LoboDto newLobo = new LoboDto(
+                        txtCanino.getText(),
+                        txtCanino2.getText(),
+                        path,
+                        txtColorCanino.getText(),
+                        txtTamañoColmillosCanino.getText(),
+                        habita,
+                        altura,
+                        largo,
+                        peso,
+                        nombre
 
+                );
+                try {
+                    LobouseCase.create(newLobo);
+                }catch (IllegalArgumentException e){
+                    mostrarError("Datos inválidos" + nombre, e.getMessage());
+                }
             }
 
             case "Perro" -> {

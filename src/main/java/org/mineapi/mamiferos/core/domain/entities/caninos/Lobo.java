@@ -11,7 +11,7 @@ public class Lobo extends Canino {
     private Integer numCamada;
     private String especieLobo;
 
-    protected Lobo(Integer numCamada, String especieLobo, String pathImagePerfil, String color, Float tamañoColmillos, String habita, Float altura, Float largo, Float peso, String nombreCientifico) {
+    public Lobo(Integer numCamada, String especieLobo, String pathImagePerfil, String color, Float tamañoColmillos, String habita, Float altura, Float largo, Float peso, String nombreCientifico) {
         super(pathImagePerfil, color, tamañoColmillos, habita, altura, largo, peso, nombreCientifico);
         comerDto = new Accion("/images/tigre/tigreComer", "Mmm que rico està");
         dormirDto = new Accion("/images/tigre/tigreDormir", "Yo estoySoñando .... ");
