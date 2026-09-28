@@ -34,56 +34,11 @@ public class GuepardoUseCase {
         guepardoList.add(newGuepardo);
     }
 
-
-    private static void validarTexto(String valor, String campo) {
-
-        if (valor == null || valor.isBlank()) {
-            throw new IllegalArgumentException(
-                    campo + " es obligatorio."
-            );
-        }
-    }
-
-    private static void validarFloatPositivo(String valor, String campo) {
-
-        try {
-
-            float numero = Float.parseFloat(valor);
-
-            if (numero <= 0) {
-                throw new IllegalArgumentException(
-                        campo + " debe ser mayor que 0."
-                );
-            }
-
-        } catch (NumberFormatException e) {
-
-            throw new IllegalArgumentException(
-                    campo + " debe ser un número válido."
-            );
-        }
-    }
-
-    private static void validarIntegerPositivo(String valor, String campo) {
-
-        try {
-
-            int numero = Integer.parseInt(valor);
-
-            if (numero <= 0) {
-                throw new IllegalArgumentException(
-                        campo + " debe ser mayor que 0."
-                );
-            }
-
-        } catch (NumberFormatException e) {
-
-            throw new IllegalArgumentException(
-                    campo + " debe ser un número entero válido."
-            );
-        }
-    }
     public static void generarGuepardoAleatorio() {
+        
+        if (!guepardoList.isEmpty()) {
+            return;
+        }
 
         Random random = new Random();
 
