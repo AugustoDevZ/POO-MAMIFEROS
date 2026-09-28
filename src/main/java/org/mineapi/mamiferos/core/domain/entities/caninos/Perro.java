@@ -37,53 +37,62 @@ public class Perro extends Canino {
 
         this.fuerzaMordidaPsi = fuerzaMordidaPsi;
 
+
         comerDto = new Accion(
-                "/images/perro/perroComer",
+                "/images/Perro/perroComer",
                 "El perro salvaje africano come junto a su manada. "
                         + "Su fuerza de mordida es de "
                         + fuerzaMordidaPsi + " PSI."
         );
 
+
         dormirDto = new Accion(
-                "/images/perro/perroDormir",
+                "/images/Perro/perroDormir",
                 "El perro salvaje africano de color "
                         + color
                         + " descansa en su hábitat de "
                         + habita + "."
         );
 
+
         correrDto = new Accion(
-                "/images/perro/perroCorrer",
+                "/images/Perro/perroCorrer",
                 "El perro salvaje africano corre por "
                         + habita
-                        + " con sus poderosas patas."
+                        + " con su manada."
         );
 
+
         comunicarseDto = new Accion(
-                "/images/perro/perroComunicarse",
-                "El perro salvaje africano se comunica con los demás "
-                        + "miembros de su manada mediante sonidos."
+                "/images/Perro/perroComunicar",
+                "El perro salvaje africano se comunica "
+                        + "con los miembros de su manada mediante sonidos."
         );
     }
+
 
     public Integer getFuerzaMordidaPsi() {
         return fuerzaMordidaPsi;
     }
+
 
     @Override
     public Accion comer() {
         return comerDto;
     }
 
+
     @Override
     public Accion dormir() {
         return dormirDto;
     }
 
+
     @Override
     public Accion correr() {
         return correrDto;
     }
+
 
     @Override
     public Accion comunicarse() {

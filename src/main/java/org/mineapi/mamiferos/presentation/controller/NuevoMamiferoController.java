@@ -12,8 +12,12 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.mineapi.mamiferos.core.application.dto.LoboDto;
 import org.mineapi.mamiferos.core.application.dto.PerroDto;
 import org.mineapi.mamiferos.core.application.dto.TigreDto;
+import org.mineapi.mamiferos.core.application.useCase.GuepardoUseCase;
+import org.mineapi.mamiferos.core.application.useCase.LobouseCase;
+import org.mineapi.mamiferos.core.application.useCase.PerroUseCase;
 import org.mineapi.mamiferos.core.application.useCase.TigreUseCase;
 import org.mineapi.mamiferos.core.domain.entities.Mamifero;
 import org.mineapi.mamiferos.core.domain.entities.caninos.Lobo;
@@ -26,6 +30,7 @@ import org.mineapi.mamiferos.core.application.useCase.GuepardoUseCase;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 
 public class NuevoMamiferoController {
 
@@ -33,6 +38,10 @@ public class NuevoMamiferoController {
     @FXML private VBox caninoSection;
     @FXML private Label lblCanino, lblCanino2;
     @FXML private TextField txtCanino2, txtCanino;
+
+    @FXML private TextField txtColorCanino;
+    @FXML private Button btnCancelar;
+    @FXML private TextField txtTamañoColmillosCanino;
     @FXML private Label lblFelino, lblFelino2;
     @FXML private TextField txtFelino2, txtFelino;
     @FXML private ComboBox<String> cmbTipo;
@@ -136,10 +145,21 @@ public class NuevoMamiferoController {
     }
 
     @FXML private void onCreateRandom(){
+        Random random = new Random();
 
+        switch (random.nextInt(4)) {
+            case 0 -> TigreUseCase.generarTigreAleatorio();
+            case 1 -> PerroUseCase.generarPerroAleatorio();
+            case 2 -> GuepardoUseCase.generarGuepardoAleatorio();
+            case 3 -> LobouseCase.generarLoboAleatorio();
+            //case 4 -> generarElefanteAleatorio();
+            default -> throw new IllegalStateException();
+        };
+        onCancelar();
     }
     @FXML private void onCancelar(){
-
+        Stage stage = (Stage) btnCancelar.getScene().getWindow();
+        stage.close();
     }
     @FXML private void onCrear(){
         int tipoMamifero = cmbTipo.getSelectionModel().getSelectedIndex();
@@ -198,14 +218,33 @@ public class NuevoMamiferoController {
             }
             case "Lobo" -> {
 
+                LoboDto newLobo = new LoboDto(
+                        txtCanino.getText(),
+                        txtCanino2.getText(),
+                        path,
+                        txtColorCanino.getText(),
+                        txtTamañoColmillosCanino.getText(),
+                        habita,
+                        altura,
+                        largo,
+                        peso,
+                        nombre
 
+                );
+                try {
+                    LobouseCase.create(newLobo);
+                }catch (IllegalArgumentException e){
+                    mostrarError("Datos inválidos" + nombre, e.getMessage());
+                }
             }
+
             case "Perro" -> {
 
                 PerroDto nuevoPerro = new PerroDto(
 
-                        txtCanino.getText(),
-                        txtCanino2.getText(),
+                        txtColorCanino.getText(),
+
+                        txtTamañoColmillosCanino.getText(),
 
                         habita,
                         altura,
@@ -218,7 +257,22 @@ public class NuevoMamiferoController {
                         txtCanino.getText()
                 );
 
+
+                try {
+
+                    PerroUseCase.create(nuevoPerro);
+
+                } catch (IllegalArgumentException e) {
+
+                    mostrarError(
+                            "Datos inválidos - " + nombre,
+                            e.getMessage()
+                    );
+
+                    return;
+                }
             }
+
         };
 
         Stage stage = (Stage) btnCrearMami.getScene().getWindow();

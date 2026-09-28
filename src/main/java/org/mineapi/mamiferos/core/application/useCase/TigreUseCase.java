@@ -7,6 +7,7 @@ import org.mineapi.mamiferos.core.domain.entities.felinos.Tigre;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class TigreUseCase {
     private static List<Tigre> tigreList = new ArrayList<>();
@@ -20,7 +21,7 @@ public class TigreUseCase {
         Float largo = MamiferoValidateUseCase.isValidLargo(dto.largo(), 0.30F, 3.8F);
         Float peso = MamiferoValidateUseCase.isValidPeso(dto.peso(), 1.0F, 320.0F);
         String nombre = MamiferoValidateUseCase.isValidText(dto.nombreCientifico(), "Nombre científico");
-        String path = MamiferoValidateUseCase.isValidPath(dto.pathImagePerfil());
+        String path = MamiferoValidateUseCase.isValidImagePath(dto.pathImagePerfil());
         String especie = MamiferoValidateUseCase.isValidText(dto.especieTigre(), "Especie");
 
         var newTigre = new Tigre(
@@ -37,7 +38,26 @@ public class TigreUseCase {
         tigreList.add(newTigre);
     }
 
+    public static void generarTigreAleatorio() {
+        Random random = new Random();
 
+        String[] especies = {"Bengala", "Siberiano", "Sumatra"};
+        String[] habitats = {"Selva tropical", "Bosque", "Pradera"};
+        String[] nombres = {"Rajah", "Shere Khan", "Simba", "Thor", "Khan"};
+
+        var newTigre = new Tigre(
+                "/images/tigre/tigreComer04.png",
+                especies[random.nextInt(especies.length)],
+                5 + random.nextFloat() * 5,
+                10 + random.nextInt() * 40,
+                habitats[random.nextInt(habitats.length)],
+                0.8F + random.nextFloat() * 0.4F,
+                2.5F + random.nextFloat(),
+                100 + random.nextFloat() * 200,
+                nombres[random.nextInt(nombres.length)]
+        );
+        tigreList.add(newTigre);
+    }
 
     public static List<Tigre> getTigreList() {
         return tigreList;

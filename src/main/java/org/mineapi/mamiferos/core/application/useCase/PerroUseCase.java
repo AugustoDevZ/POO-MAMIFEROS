@@ -5,6 +5,7 @@ import org.mineapi.mamiferos.core.domain.entities.caninos.Perro;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class PerroUseCase {
 
@@ -68,9 +69,8 @@ public class PerroUseCase {
          * porque ese método busca una ruta física del disco.
          */
         String path =
-                MamiferoValidateUseCase.isValidText(
-                        dto.pathImagePerfil(),
-                        "Imagen de perfil"
+                MamiferoValidateUseCase.isValidImagePath(
+                        dto.pathImagePerfil()
                 );
 
         Integer fuerzaMordida =
@@ -102,31 +102,28 @@ public class PerroUseCase {
         return perroList;
     }
 
-    public static void cargarPerroPrueba() {
+    public static void generarPerroAleatorio() {
 
         if (!perroList.isEmpty()) {
             return;
         }
 
+        Random random = new Random();
+
+        String[] colores = {"Marrón", "Negro", "Blanco", "Dorado"};
+        String[] habitats = {"Sabana africana", "Bosque", "Pradera"};
+        String[] especies = {"Canis lupus familiaris", "Canis lupus"};
+
         Perro perro = new Perro(
-
-                "/images/perro/perroPerfil.png",
-
-                "Marrón, negro y blanco",
-
-                3.5F,
-
-                "Sabana africana",
-
-                0.75F,
-
-                1.10F,
-
-                25F,
-
-                "Lycaon pictus",
-
-                317
+                "/images/Perro/perroDormir1.png",
+                colores[random.nextInt(colores.length)],
+                random.nextFloat(0.5F, 1.0F),
+                habitats[random.nextInt(habitats.length)],
+                random.nextFloat(0.5F, 0.9F),
+                random.nextFloat(0.8F, 1.2F),
+                random.nextFloat(5F, 40F),
+                especies[random.nextInt(especies.length)],
+                random.nextInt(1, 1000)
         );
 
         perroList.add(perro);

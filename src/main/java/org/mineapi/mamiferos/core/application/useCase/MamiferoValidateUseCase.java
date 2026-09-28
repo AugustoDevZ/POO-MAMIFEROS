@@ -47,7 +47,7 @@ public class MamiferoValidateUseCase {
         }
         return velocidad;
     }
-    private static Integer isValidInteger(String valor, String campo) {
+    public static Integer isValidInteger(String valor, String campo) {
 
         try {
 
@@ -138,4 +138,51 @@ public class MamiferoValidateUseCase {
 
         return fuerza;
     }
+
+    public static String isValidImagePath(String path) {
+
+        if (path == null || path.isBlank()) {
+
+            throw new IllegalArgumentException(
+                    "La imagen de perfil es obligatoria."
+            );
+        }
+
+
+        /*
+         * Las rutas que comienzan con /
+         * son recursos internos.
+         */
+        if (path.startsWith("/")) {
+
+            return path;
+        }
+
+
+        /*
+         * Si no comienza con /,
+         * debe ser un archivo externo.
+         */
+        try {
+
+            Path filePath = Path.of(path);
+
+            if (!Files.exists(filePath)) {
+
+                throw new IllegalArgumentException(
+                        "La imagen seleccionada no existe."
+                );
+            }
+
+            return filePath.toString();
+
+
+        } catch (InvalidPathException e) {
+
+            throw new IllegalArgumentException(
+                    "La ruta de la imagen no es válida."
+            );
+        }
+    }
+
 }

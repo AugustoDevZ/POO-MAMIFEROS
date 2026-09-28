@@ -42,6 +42,7 @@
             </VBox>
 
             <Button
+                    fx:id="btnCancelar"
                     text="Cancelar"
                     onAction="#onCancelar"
                     styleClass="action-button"/>

@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class CardController {
@@ -22,16 +23,88 @@ public class CardController {
 
         System.out.println("Imagen solicitada: " + path);
 
-        var resource = getClass().getResource(path);
+        if (path == null || path.isBlank()) {
 
-        if (resource == null) {
-            mostrarError("Error al cargar un Card de Sidebar", "No se encontró la imagen: " + path);
+            mostrarError(
+                    "Error de imagen",
+                    "La ruta de la imagen está vacía."
+            );
+
             return;
         }
 
-        imgMamifero.setImage(
-                new Image(resource.toExternalForm())
-        );
+
+        try {
+
+            Image imagen;
+
+
+            /*
+             * CASO 1:
+             * Imagen interna de resources
+             *
+             * Ejemplo:
+             * /images/Perro/perroDormir1.png
+             */
+            if (path.startsWith("/")) {
+
+                var resource =
+                        getClass().getResource(path);
+
+                if (resource == null) {
+
+                    mostrarError(
+                            "Error al cargar imagen",
+                            "No se encontró el recurso: " + path
+                    );
+
+                    return;
+                }
+
+                imagen =
+                        new Image(resource.toExternalForm());
+
+            }
+
+            /*
+             * CASO 2:
+             * Imagen seleccionada desde la computadora
+             *
+             * Ejemplo:
+             * C:\Users\Luis\Pictures\perro.png
+             */
+            else {
+
+                File archivo =
+                        new File(path);
+
+                if (!archivo.exists()) {
+
+                    mostrarError(
+                            "Error al cargar imagen",
+                            "No existe el archivo: " + path
+                    );
+
+                    return;
+                }
+
+                imagen =
+                        new Image(
+                                archivo.toURI().toString()
+                        );
+            }
+
+
+            imgMamifero.setImage(imagen);
+
+
+        } catch (Exception e) {
+
+            mostrarError(
+                    "Error al cargar imagen",
+                    e.getMessage()
+            );
+        }
     }
 
     public void setAnimal(String animal) {

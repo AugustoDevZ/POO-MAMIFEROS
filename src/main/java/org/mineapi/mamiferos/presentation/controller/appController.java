@@ -50,8 +50,6 @@ public class appController {
 
         cardContainer.getChildren().clear();
 
-        PerroUseCase.cargarPerroPrueba();
-
         List<Tigre> tigres =
                 TigreUseCase.getTigreList();
 
@@ -66,6 +64,7 @@ public class appController {
         for (Perro perro : perros) {
             cargarCard(perro);
         }
+        
         List<Guepardo> guepardos = GuepardoUseCase.getGuepardoList();
 
         for (Guepardo guepardo : guepardos) {
