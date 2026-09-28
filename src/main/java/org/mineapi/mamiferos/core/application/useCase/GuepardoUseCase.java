@@ -5,6 +5,7 @@ import org.mineapi.mamiferos.core.domain.entities.felinos.Guepardo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class GuepardoUseCase {
     private static List<Guepardo> guepardoList = new ArrayList<>();
@@ -98,7 +99,28 @@ public class GuepardoUseCase {
             );
         }
     }
+    public static void generarGuepardoAleatorio() {
 
+        Random random = new Random();
+
+        String[] habitats = {
+                "Sabana africana",
+                "Pradera",
+                "Zonas semiáridas"
+        };
+
+        var newGuepa = new Guepardo(
+                "/images/guepardo/Guepardocomer01.png",
+                random.nextFloat(5.0F, 10.0F),
+                random.nextInt(80, 121),
+                habitats[random.nextInt(habitats.length)],
+                random.nextFloat(0.7F, 0.9F),
+                random.nextFloat(1.1F, 1.5F),
+                random.nextFloat(30.0F, 60.0F),
+                "Acinonyx jubatus"
+        );
+        guepardoList.add(newGuepa);
+    }
     public static List<Guepardo> getGuepardoList() {
         return guepardoList;
     }

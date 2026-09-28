@@ -62,18 +62,7 @@
         <BorderPane>
 
 
-            <top>
-                <HBox
-                        alignment="CENTER_RIGHT"
-                        styleClass="header-">
 
-                    <Button
-                            text="⌘  Abrir Consola"
-                            onAction="#onCambiarConsola"
-                            styleClass="action-button"/>
-
-                </HBox>
-            </top>
 
 
 
@@ -93,15 +82,25 @@
                                 alignment="CENTER"
                                 spacing="8">
 
-                            <Label
-                                    text="ESCENARIO"
-                                    styleClass="scene-label"/>
 
-                            <ImageView
-                                    fx:id="imgMamiferoEscenario"
-                                    fitWidth="300"
-                                    fitHeight="250"
-                                    preserveRatio="true"/>
+                            <StackPane
+                                    prefWidth="600"
+                                    prefHeight="350">
+
+                                <!-- Fondo -->
+                                <ImageView
+                                        fx:id="imgEscenario"
+                                        preserveRatio="false"
+                                        fitWidth="600"
+                                        fitHeight="350"/>
+
+                                <!-- Mamífero -->
+                                <ImageView
+                                        fx:id="imgMamiferoEscenario"
+                                        translateY="40"
+                                        preserveRatio="true"/>
+
+                            </StackPane>
 
                         </VBox>
                         <Button
@@ -109,7 +108,7 @@
                                 text="⏸"
                                 onAction="#onToggleAnimation"
                                 StackPane.alignment="TOP_RIGHT"
-                                styleClass="animation-button"/>
+                                styleClass="action-button"/>
 
                     </StackPane>
 
