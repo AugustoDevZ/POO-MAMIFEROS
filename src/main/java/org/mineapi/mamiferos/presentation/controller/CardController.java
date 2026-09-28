@@ -44,7 +44,7 @@ public class CardController {
              * Imagen interna de resources
              *
              * Ejemplo:
-             * /images/Perro/perroDormir1.png
+             * /images/Perro/perroDormir01.png
              */
             if (path.startsWith("/")) {
 

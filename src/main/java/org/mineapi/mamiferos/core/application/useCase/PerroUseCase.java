@@ -115,7 +115,7 @@ public class PerroUseCase {
         String[] especies = {"Canis lupus familiaris", "Canis lupus"};
 
         Perro perro = new Perro(
-                "/images/perro/perroDormir1.png",
+                "/images/perro/perroDormir01.png",
                 colores[random.nextInt(colores.length)],
                 random.nextFloat(0.5F, 1.0F),
                 habitats[random.nextInt(habitats.length)],
