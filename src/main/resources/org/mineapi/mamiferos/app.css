@@ -350,7 +350,28 @@
 
     -fx-cursor: hand;
 }
+.stats-table {
+    -fx-padding: 12px 20px;
 
+    -fx-background-color: #15181f;
+
+    -fx-background-radius: 10px;
+
+    -fx-border-color: #252a34;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+}
+
+.stats-table .stat-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: #858c99;
+}
+
+.stats-table .stat-value {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #c5cad2;
+}
 
 /* Hover */
 
