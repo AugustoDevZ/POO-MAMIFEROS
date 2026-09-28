@@ -22,6 +22,8 @@ import org.mineapi.mamiferos.core.domain.Enum.AccionType;
 import org.mineapi.mamiferos.core.domain.entities.Mamifero;
 import org.mineapi.mamiferos.core.domain.entities.caninos.Perro;
 import org.mineapi.mamiferos.core.domain.entities.felinos.Tigre;
+import org.mineapi.mamiferos.core.application.useCase.GuepardoUseCase;
+import org.mineapi.mamiferos.core.domain.entities.felinos.Guepardo;
 import org.mineapi.mamiferos.core.domain.valueobjets.Accion;
 
 import java.io.IOException;
@@ -63,6 +65,11 @@ public class appController {
 
         for (Perro perro : perros) {
             cargarCard(perro);
+        }
+        List<Guepardo> guepardos = GuepardoUseCase.getGuepardoList();
+
+        for (Guepardo guepardo : guepardos) {
+             cargarCard(guepardo);
         }
     }
 

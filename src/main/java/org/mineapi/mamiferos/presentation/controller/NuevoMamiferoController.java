@@ -21,6 +21,8 @@ import org.mineapi.mamiferos.core.domain.entities.caninos.Perro;
 import org.mineapi.mamiferos.core.domain.entities.felinos.Guepardo;
 import org.mineapi.mamiferos.core.domain.entities.felinos.Leon;
 import org.mineapi.mamiferos.core.domain.entities.felinos.Tigre;
+import org.mineapi.mamiferos.core.application.dto.GuepardoDto;
+import org.mineapi.mamiferos.core.application.useCase.GuepardoUseCase;
 
 import java.io.File;
 import java.io.IOException;
@@ -178,9 +180,21 @@ public class NuevoMamiferoController {
                     mostrarError("Datos inválidos" + nombre, e.getMessage());
                 }
             }
-            case "Guepardo" -> {
-
-
+            case "Guepardo" ->{
+                var newGuepardo = new GuepardoDto(
+                        txtTamanoGarras.getText(),
+                        txtVelocidad.getText(),
+                        habita,
+                        altura,
+                        largo,
+                        peso,
+                        nombre,
+                        path);
+                try {
+                  GuepardoUseCase.create(newGuepardo);
+                    }catch (IllegalArgumentException e) {
+                    mostrarError("Datos inválidos " + nombre, e.getMessage());
+                    }
             }
             case "Lobo" -> {
 
