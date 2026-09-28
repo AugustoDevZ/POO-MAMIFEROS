@@ -12,21 +12,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.mineapi.mamiferos.core.application.dto.LoboDto;
-import org.mineapi.mamiferos.core.application.dto.PerroDto;
-import org.mineapi.mamiferos.core.application.dto.TigreDto;
-import org.mineapi.mamiferos.core.application.useCase.GuepardoUseCase;
-import org.mineapi.mamiferos.core.application.useCase.LobouseCase;
-import org.mineapi.mamiferos.core.application.useCase.PerroUseCase;
-import org.mineapi.mamiferos.core.application.useCase.TigreUseCase;
+import org.mineapi.mamiferos.core.application.dto.*;
+import org.mineapi.mamiferos.core.application.useCase.*;
 import org.mineapi.mamiferos.core.domain.entities.Mamifero;
 import org.mineapi.mamiferos.core.domain.entities.caninos.Lobo;
 import org.mineapi.mamiferos.core.domain.entities.caninos.Perro;
 import org.mineapi.mamiferos.core.domain.entities.felinos.Guepardo;
 import org.mineapi.mamiferos.core.domain.entities.felinos.Leon;
 import org.mineapi.mamiferos.core.domain.entities.felinos.Tigre;
-import org.mineapi.mamiferos.core.application.dto.GuepardoDto;
-import org.mineapi.mamiferos.core.application.useCase.GuepardoUseCase;
 
 import java.io.File;
 import java.io.IOException;
@@ -146,15 +139,32 @@ public class NuevoMamiferoController {
 
     @FXML private void onCreateRandom(){
         Random random = new Random();
+        switch (random.nextInt(5)) {
+            case 0 -> {
 
-        switch (random.nextInt(4)) {
-            case 0 -> TigreUseCase.generarTigreAleatorio();
-            case 1 -> PerroUseCase.generarPerroAleatorio();
-            case 2 -> GuepardoUseCase.generarGuepardoAleatorio();
-            case 3 -> LobouseCase.generarLoboAleatorio();
-            //case 4 -> generarElefanteAleatorio();
+                TigreUseCase.generarTigreAleatorio();
+                System.out.println(0);
+            }
+            case 1 -> {
+                LeonUseCase.generarLeonAleatorio();
+                System.out.println(1);
+            }
+            case 2 ->{
+                GuepardoUseCase.generarGuepardoAleatorio();
+                System.out.println(2);
+            }
+            case 3 -> {
+                LobouseCase.generarLoboAleatorio();
+                System.out.println(3);
+            }
+            case 4 -> {
+
+                PerroUseCase.generarPerroAleatorio();
+                System.out.println(4);
+            }
             default -> throw new IllegalStateException();
         };
+
         onCancelar();
     }
     @FXML private void onCancelar(){
@@ -179,7 +189,23 @@ public class NuevoMamiferoController {
 
         switch (animal) {
             case "León" -> {
-
+                var newLeon = new LeonDto(
+                        txtFelino.getText(),
+                        txtFelino2.getText(),
+                        path,
+                        txtTamanoGarras.getText(),
+                        txtVelocidad.getText(),
+                        habita,
+                        altura,
+                        largo,
+                        peso,
+                        nombre
+                );
+                try {
+                    LeonUseCase.create(newLeon);
+                }catch (IllegalArgumentException e){
+                    mostrarError("Datos inválidos" + nombre, e.getMessage());
+                }
             }
             case "Tigre" -> {
 

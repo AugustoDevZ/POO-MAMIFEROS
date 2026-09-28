@@ -13,10 +13,10 @@ public class Leon extends Felino {
 
     public Leon(Integer numManada, Float potenciaRugidoDecibel,String pathImagePerfil,Float tamañoGarras, Integer velocidad, String habita, Float altura, Float largo, Float peso, String nombreCientifico) {
         super(pathImagePerfil, tamañoGarras, velocidad, habita, altura, largo, peso, nombreCientifico);
-        comerDto = new Accion("/images/tigre/tigreComer", "Mmm que rico està");
-        dormirDto = new Accion("/images/tigre/tigreDormir", "Yo estoySoñando .... ");
-        correrDto = new Accion("/images/tigre/tigreCorrer", "Correr es bueno para mi salud");
-        comunicarseDto =  new Accion("/images/tigre/tigreComunciarse", "Llamo a todos los tigres");
+        comerDto = new Accion("/images/leon/leonComer", "Mmm que rico està");
+        dormirDto = new Accion("/images/leon/leonDormir", "Yo estoySoñando .... ");
+        correrDto = new Accion("/images/leon/leonCorrer", "Correr es bueno para mi salud");
+        comunicarseDto =  new Accion("/images/leon/leonComunciarse", "Llamo a todos los tigres");
         this.potenciaRugidoDecibel = potenciaRugidoDecibel;
         this.numManada =numManada;
     }

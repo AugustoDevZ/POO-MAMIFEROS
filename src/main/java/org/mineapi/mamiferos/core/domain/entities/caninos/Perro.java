@@ -12,6 +12,7 @@ public class Perro extends Canino {
     private final Accion correrDto;
     private final Accion comunicarseDto;
 
+
     public Perro(
             String pathImagePerfil,
             String color,
@@ -38,16 +39,16 @@ public class Perro extends Canino {
         this.fuerzaMordidaPsi = fuerzaMordidaPsi;
 
 
-        comerDto = new Accion(
-                "/images/Perro/perroComer",
+        this.comerDto = new Accion(
+                "/images/perro/perroComer",
                 "El perro salvaje africano come junto a su manada. "
                         + "Su fuerza de mordida es de "
                         + fuerzaMordidaPsi + " PSI."
         );
 
 
-        dormirDto = new Accion(
-                "/images/Perro/perroDormir",
+        this.dormirDto = new Accion(
+                "/images/perro/perroDormir",
                 "El perro salvaje africano de color "
                         + color
                         + " descansa en su hábitat de "
@@ -55,16 +56,16 @@ public class Perro extends Canino {
         );
 
 
-        correrDto = new Accion(
-                "/images/Perro/perroCorrer",
+        this.correrDto = new Accion(
+                "/images/perro/perroCorrer",
                 "El perro salvaje africano corre por "
                         + habita
                         + " con su manada."
         );
 
 
-        comunicarseDto = new Accion(
-                "/images/Perro/perroComunicar",
+        this.comunicarseDto = new Accion(
+                "/images/perro/perroComunicar",
                 "El perro salvaje africano se comunica "
                         + "con los miembros de su manada mediante sonidos."
         );

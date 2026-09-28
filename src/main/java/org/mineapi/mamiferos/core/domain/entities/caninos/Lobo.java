@@ -13,10 +13,10 @@ public class Lobo extends Canino {
 
     public Lobo(Integer numCamada, String especieLobo, String pathImagePerfil, String color, Float tamañoColmillos, String habita, Float altura, Float largo, Float peso, String nombreCientifico) {
         super(pathImagePerfil, color, tamañoColmillos, habita, altura, largo, peso, nombreCientifico);
-        comerDto = new Accion("/images/tigre/tigreComer", "Mmm que rico està");
-        dormirDto = new Accion("/images/tigre/tigreDormir", "Yo estoySoñando .... ");
-        correrDto = new Accion("/images/tigre/tigreCorrer", "Correr es bueno para mi salud");
-        comunicarseDto =  new Accion("/images/tigre/tigreComunciarse", "Llamo a todos los perros");
+        comerDto = new Accion("/images/lobo/loboComer", "Mmm que rico està");
+        dormirDto = new Accion("/images/lobo/loboDormir", "Yo estoySoñando .... ");
+        correrDto = new Accion("/images/lobo/loboCorrer", "Correr es bueno para mi salud");
+        comunicarseDto =  new Accion("/images/lobo/loboComunciarse", "Llamo a todos los perros");
         this.numCamada =numCamada;
         this. especieLobo =  especieLobo;
 

@@ -8,6 +8,8 @@ public record LeonDto(
         String largo,
         String peso,
         String nombreCientifico,
-        String pathImagePerfil
+        String pathImagePerfil,
+        String numManada,
+        String potenciaRugidoDecibel
 ) {
 }

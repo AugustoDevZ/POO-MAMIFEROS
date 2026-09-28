@@ -49,7 +49,7 @@ public class LobouseCase {
         var newLobo = new Lobo(
                 random.nextInt(1, 6),
                 especies[random.nextInt(especies.length)],
-                "/images/lobo/lobo.png",
+                "/images/lobo/loboComer03.png",
                 colores[random.nextInt(colores.length)],
                 random.nextFloat(4.0F, 8.0F),
                 habitats[random.nextInt(habitats.length)],
